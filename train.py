@@ -6,13 +6,13 @@ import os, imageio, csv
 
 def get_rgb_from_path(path):
     """
-    The function gets the rgb value from the first pixel of 'path' image
+    The function gets the rgb value from the pixel of middle of 'path' image
     and return as a tuple of (R, G, B)
     """
     # read the image from given 'path'
     image = imageio.imread(path, pilmode='RGB')
     # return the tuple (R, G, B) from image
-    return tuple(image[0][0])
+    return tuple(image[int(len(image)/2)][int(len(image[0])/2)])
 
 def main():
     base_path = './training_dataset/'
