@@ -22,22 +22,23 @@ def main():
     # start the program
     while(is_running):
         print('Enter \'q\' for exit, \'g\' for start guessing:')
-        if input() == 'g':
-            print('Enter Red Value:')
-            red = int(input())
-            print('Enter Green Value:')
-            green = int(input())
-            print('Enter Blue Value: ')
-            blue = int(input())
-            # generating color
-            guess = [[red, green, blue]]
-            # predicting color with variable 'guess'
-            print(color_model.predict(pandas.DataFrame(guess, columns=['Red', 'Green', 'Blue']))[0])
-        elif input == 'q':
-            is_running = False
-            print('Exiting...')
-        else:
-            print('Input Error!')
+        match input():
+            case 'g':
+                print('Enter Red Value:')
+                red = int(input())
+                print('Enter Green Value:')
+                green = int(input())
+                print('Enter Blue Value: ')
+                blue = int(input())
+                # generating color
+                guess = [[red, green, blue]]
+                # predicting color with variable 'guess'
+                print(color_model.predict(pandas.DataFrame(guess, columns=['Red', 'Green', 'Blue']))[0])
+            case 'q':
+                is_running = False
+                print('Exiting...')
+            case _:
+                print('Input Error!')
 
 if __name__ == '__main__':
     main()
